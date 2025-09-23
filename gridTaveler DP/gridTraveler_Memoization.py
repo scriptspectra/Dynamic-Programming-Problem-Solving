@@ -1,11 +1,14 @@
-def gridtraveler_Rec(n, m):
-    """calculates number of paths we can travel from start to end"""
-    if n == 1 and m == 1 : return 1
-    if n == 0 or m == 0 : return 0
+def gridTravelerMemo(n, m, memo={}):
+    # memo key
+    key = f"{n},{m}"
 
-    # we can move only to right or down from the current position
-    # gridtraveler_Rec(n-1, m) --- moving down
-    # gridtraveler_Rec(n, m-1) --- moving right
-    return gridtraveler_Rec(n-1, m) + gridtraveler_Rec(n, m-1)
+    if key in memo: return memo[key]
 
-print(gridtraveler_Rec(2,3))
+    if n == 1 and m == 1: return 1
+    if n == 0 or m == 0: return 0
+
+    memo[key] = gridTravelerMemo(n-1, m, memo) + gridTravelerMemo(n, m-1, memo)
+    return memo[key]
+
+print(gridTravelerMemo(2,3))
+print(gridTravelerMemo(18,18))
