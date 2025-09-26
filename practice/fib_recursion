@@ -1,0 +1,21 @@
+from time import time
+
+def fib_recursion(n):
+    """get nth fibonacci number with recursion"""
+    if n == 0 or n == 1: return n
+
+    return fib_recursion(n-1) + fib_recursion(n-2)
+
+print("Fib - Recursion")
+
+# 10th fibonacci number
+start_time_1 = time()
+print(fib_recursion(20)) # prints 55
+end_time_1 = time()
+print(f"time taken: {end_time_1-start_time_1}")
+
+# 20th fibonacci number
+start_time_2 = time()
+print(fib_recursion(40)) # prints 55
+end_time_2 = time()
+print(f"time taken: {end_time_2-start_time_2}")
