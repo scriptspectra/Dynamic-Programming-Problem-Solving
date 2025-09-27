@@ -6,7 +6,6 @@ def howSumRecursion(numbers, targetSum):
         remainder = targetSum - number
         result = howSumRecursion(numbers, remainder)
         if result is not None:
-            return result + [number]
-        
+            return result + [number]       
 
 print(howSumRecursion([2,3,4,7], 7))
